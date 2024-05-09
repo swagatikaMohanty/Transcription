@@ -1,0 +1,8 @@
+<!-- <router-outlet></router-outlet> -->
+
+
+<button (click)="startRecording()">Start Recording</button>
+<button (click)="stopRecordingAndTranscribe()">Stop and Transcribe</button>
+<button (click)="getSummary()">SUMMARY</button>
+<button (click)="getTranscription()">Transcribe</button>
+<div *ngIf="transcription">{{ transcription }}</div>
