@@ -55,4 +55,14 @@ export class AppComponent {
     var transcription = this.summary.generateTranscription();
     console.log(transcription);
   }
+
+  async getSummaryHF(){
+    var summary = await this.summary.getSummeryUsingHuggingFace(this.summeryRequestText);
+    console.log(summary);
+  }
+
+  async getTranscriptionHF(){
+    var transcribeAudio = await this.summary.getTranscriptionHuggingFace();
+    console.log(transcribeAudio);
+  }
 }
