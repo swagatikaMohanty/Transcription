@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { transcribeBrokerService } from 'src/Services/transcribe.broker';
 import { HttpClientModule } from '@angular/common/http';
 import { SummaryBrokerService } from 'src/Services/summary.broker';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EmailBrokerService } from 'src/Services/email.broker';
 
 @NgModule({
   declarations: [
@@ -14,9 +16,11 @@ import { SummaryBrokerService } from 'src/Services/summary.broker';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule 
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule 
   ],
-  providers: [transcribeBrokerService,SummaryBrokerService],
+  providers: [transcribeBrokerService,SummaryBrokerService,EmailBrokerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

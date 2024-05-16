@@ -70,7 +70,7 @@ export class SummaryBrokerService {
     } 
     
     async getTranscriptionHuggingFace(){
-        const audioFile = await this.loadAudioFile("assets/download.wav");
+        const audioFile = await this.loadAudioFile("assets/downloadMulti.wav");
         var result = await this.hf.automaticSpeechRecognition({
             model: 'openai/whisper-large-v3',
             data: audioFile
@@ -81,23 +81,18 @@ export class SummaryBrokerService {
         // });
         return result;
     }
+
+    async getTranscriptionMultiPersonHuggingFace(){
+        const audioFile = await this.loadAudioFile("assets/downloadMulti.wav");
+        var result = await this.hf.automaticSpeechRecognition({
+            model: 'pyannote/speaker-diarization@2.1',
+            data: audioFile
+          })
+        // const chatCompletion = await this.openai.audio.transcriptions.create({
+        //     model: "whisper-1",
+        //     file: audioFile
+        // });
+        return result;
+    }
 }
 
-
-
-// return new Observable((observer) => {
-        //     this.openai.summary({
-        //         model: 'text-davinci-003', // Choose a model appropriate for summarization
-        //         text: text, // Provide the text you want to summarize
-        //         max_tokens: 50, // Set the maximum number of tokens for the summary
-        //     }).then((response) => {
-        //         // Handle the response from the API
-        //         const summary = response.data;
-        //         observer.next(summary); // Emit the summary
-        //         observer.complete(); // Complete the observable
-        //     }).catch((error) => {
-        //         // Handle errors
-        //         console.error('Error generating summary:', error);
-        //         observer.error(error); // Emit the error
-        //     });
-        // });

@@ -7,4 +7,72 @@
 <button (click)="getTranscription()">Transcribe</button>
 <button (click)="getSummaryHF()">SUMMARY_HF</button>
 <button (click)="getTranscriptionHF()">TranscribeHF</button>
+<button (click)="getTranscriptionMultiPersonHF()">TranscribeMultiPersonHF</button>
 <div *ngIf="transcription">{{ transcription }}</div>
+
+
+<div class="card">
+    <div class="card-body">
+        <form #clientEntryForm="ngForm">
+            <div class="form-group">
+                <label for="reportName">{{'From'}}<span class="required-star">*</span></label>
+                <input type="text" 
+                        class="form-control" 
+                        id="from_name" 
+                        name="from_name"
+                        placeholder="From" 
+                        required
+                        minlength="2" 
+                        maxlength="250"
+                        #ReportName="ngModel"
+                        [(ngModel)]="model.from_name">
+            </div>
+            <div class="form-group">
+                <label for="reportName">{{'To'}}<span class="required-star">*</span></label>
+                <input type="text" 
+                        class="form-control" 
+                        id="from_name" 
+                        name="from_name"
+                        placeholder="From" 
+                        required
+                        minlength="2" 
+                        maxlength="250"
+                        #ReportName="ngModel"
+                        [(ngModel)]="model.to_name">
+            </div>
+            <div class="form-group">
+                <label for="reportName">{{'reply_to'}}<span class="required-star">*</span></label>
+                <input type="text" 
+                        class="form-control" 
+                        id="reply_to" 
+                        name="reply_to"
+                        placeholder="reply_to" 
+                        required
+                        minlength="2" 
+                        maxlength="250"
+                        #ReportName="ngModel"
+                        [(ngModel)]="model.reply_to">
+            </div>
+            <div class="form-group">
+                <label for="reportName">{{'From'}}<span class="required-star">*</span></label>
+                <input type="text" 
+                        class="form-control" 
+                        id="message" 
+                        name="message"
+                        placeholder="message" 
+                        required
+                        minlength="2" 
+                        maxlength="250"
+                        #ReportName="ngModel"
+                        [(ngModel)]="model.message">
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <button class="btn btn-primary" type="button"
+                        (click)="OnSaveEmailEntry()">{{'Save'}}</button>
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
